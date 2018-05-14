@@ -20,7 +20,8 @@ It enables to measure TCP Initial Congestion Windows.
 
 ### Create
  ```
- go build
+ $ cd $GOPATH/src/github.com/Eichhoernchen/
+ $ go build
  ```
 
 ## Running
