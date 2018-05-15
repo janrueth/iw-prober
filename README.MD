@@ -1,6 +1,7 @@
 # IW-Prober
 
-We built this tool for our TMA 2018 Paper: "Demystifying TCP Initial Window Configurations of Content Distribution Networks"
+We built this tool for our TMA 2018 Paper: "Demystifying TCP Initial Window Configurations of Content Distribution Networks".
+
 It enables to measure TCP Initial Congestion Windows.
 
 ## Building
@@ -93,7 +94,8 @@ Please note the $DEV parameter which is your physical ethernet device.
 
 Once the tool has probed the URL, it will emit a json to stdout containing the json it read from stdin + a `results` field:
 The field contains the DNS resolution (`dns`), as well as `connection` field which keeps track of the connection information.
-More specifically, the IW (in bytes) can be calculated from `.results.connection.data.end_of_data - .results.connection.data.start_of_data`.
+If you put the same dns results record back into the input, the scanner will automatically use the existing DNS resolution for its probe.
+The IW (in bytes) can be calculated from `.results.connection.data.end_of_data - .results.connection.data.start_of_data`.
 Further, the observed MSS (largest observed segment size) is available via: `.results.connection.data.observed_mss`
 All individually received segments (seq_num, len) are made available via the array: `.results.connection.data.segments`
 
