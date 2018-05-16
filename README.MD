@@ -36,6 +36,8 @@ The tool transparently takes a line-wise json from stdin, it requires the follow
  And `url` being the URL that should be probed for its TCP IW.
  Please note that regardless of the port or schema, the scanner will initiate a HTTP/TCP connection on the command line parameter specified port.
 
+
+
  There are several command line arguments that you should know about:
 
 ```
@@ -89,6 +91,14 @@ sudo ethtool -K $DEV tso off
 ```
 
 Please note the $DEV parameter which is your physical ethernet device.
+
+
+
+For example to use our target list (brotli compressed json) and to scan it with an MSS of 1200 byte, you can do the following:
+
+```
+  $ brotli -d -c  http_archive_2018-01-15-essential.json.br | jq -c '. + {"mss": 1200}'  | iw-prober -dev ...
+```
 
 ## Output
 
